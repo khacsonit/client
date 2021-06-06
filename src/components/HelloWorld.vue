@@ -29,6 +29,7 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    {{ $getConst('NumberOne') }}
   </div>
 </template>
 
@@ -37,6 +38,15 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    this.axios.get(this.$getConst('URL_SERVER'))
+    .then(res => {
+      console.log(res)
+    })
+    .catch( err => {
+      console.log(err)
+    })
   }
 }
 </script>
